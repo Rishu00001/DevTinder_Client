@@ -1,46 +1,95 @@
 import React from "react";
+import Navbar from "./components/Navbar";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Body from "./components/Body";
+import Login from "./components/Login";
+import Profile from "./components/Profile";
+import { Provider } from "react-redux";
+import store from "./redux/store";
+import Feed from "./components/Feed";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Connections from "./components/Connections";
+import Requests from "./components/Requests";
+import Signup from "./components/Signup";
 
 function App() {
   return (
     <div>
-      <div className="navbar bg-base-300">
-        <div className="flex-1">
-          <a className="btn btn-ghost text-xl">DevTinder</a>
-        </div>
-        <div className="flex-none gap-2">
-          <div className="dropdown dropdown-end mx-5">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle avatar"
+      <Provider store={store}>
+        <BrowserRouter basename="/">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <div>
+                  <Body />
+                </div>
+              }
             >
-              <div className="w-10 rounded-full">
-                <img
-                  alt="Tailwind CSS Navbar component"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                />
-              </div>
-            </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-            >
-              <li>
-                <a className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </a>
-              </li>
-              <li>
-                <a>Settings</a>
-              </li>
-              <li>
-                <a>Logout</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+              <Route
+                path="/"
+                element={
+                  <div>
+                    <Feed />
+                  </div>
+                }
+              />
+              <Route
+                path="/login"
+                element={
+                  <div>
+                    <Login />
+                  </div>
+                }
+              />
+              <Route
+                path="/signup"
+                element={
+                  <div>
+                    <Signup />
+                  </div>
+                }
+              />
+              <Route
+                path="/Profile"
+                element={
+                  <div>
+                    <Profile />
+                  </div>
+                }
+              />
+              <Route
+                path="/connections"
+                element={
+                  <div>
+                    <Connections />
+                  </div>
+                }
+              />
+              <Route
+                path="/requests"
+                element={
+                  <div>
+                    <Requests />
+                  </div>
+                }
+              />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </Provider>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </div>
   );
 }
