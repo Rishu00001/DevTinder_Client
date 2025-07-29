@@ -28,7 +28,7 @@ function Feed() {
   if (feed.length === 0) return <div>No new users found</div>;
   return (
     <div className="flex justify-center items-center h-[90dvh]  w-[95vw]">
-      <UserCard user={feed[1]} />
+      <UserCard user={feed[0]} />
     </div>
   );
 }
