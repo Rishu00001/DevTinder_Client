@@ -4,6 +4,7 @@ import axios from "axios";
 
 function Premium() {
   const [premium, setPremium] = useState(false);
+  const [loading, setLoading] = useState(false);
   const handlePurchase = async (type) => {
     const order = await axios.post(
       `${server_url}/api/payment/create`,
@@ -35,11 +36,12 @@ function Premium() {
     const rzp = new window.Razorpay(options);
     rzp.open();
   };
-    useEffect(()=>{
+  useEffect(() => {
     verifyPremium();
-  },[])
+  }, []);
   const verifyPremium = async (req, res) => {
     try {
+      setLoading(true);
       const res = await axios.get(`${server_url}/api/payment/verify`, {
         withCredentials: true,
       });
@@ -48,8 +50,11 @@ function Premium() {
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
+  if (loading) return <div>Please wait..</div>;
   if (premium) {
     return <div>You are now a Premium user</div>;
   } else
