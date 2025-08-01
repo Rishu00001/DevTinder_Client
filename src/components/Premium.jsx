@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { server_url } from "../utils/constants";
 import axios from "axios";
 
@@ -35,6 +35,9 @@ function Premium() {
     const rzp = new window.Razorpay(options);
     rzp.open();
   };
+    useEffect(()=>{
+    verifyPremium();
+  },[])
   const verifyPremium = async (req, res) => {
     try {
       const res = await axios.get(`${server_url}/api/payment/verify`, {
