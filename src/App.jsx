@@ -12,6 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Connections from "./components/Connections";
 import Requests from "./components/Requests";
 import Signup from "./components/Signup";
+import Premium from "./components/Premium";
 
 function App() {
   return (
@@ -72,6 +73,14 @@ function App() {
                 element={
                   <div>
                     <Requests />
+                  </div>
+                }
+              />
+              <Route
+                path="/premium"
+                element={
+                  <div>
+                    <Premium />
                   </div>
                 }
               />
