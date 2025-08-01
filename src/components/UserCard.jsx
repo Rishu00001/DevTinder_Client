@@ -3,6 +3,7 @@ import dp from "../assets/dp.webp";
 import { server_url } from "../utils/constants";
 import { useDispatch } from "react-redux";
 import { removeFeed } from "../redux/feedSlice";
+import { HiMiniCheckBadge } from "react-icons/hi2";
 import axios from "axios";
 function UserCard({ user }) {
   const dispatch = useDispatch();
@@ -26,18 +27,25 @@ function UserCard({ user }) {
         <img src={user?.photo || dp} alt="Shoes" />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">{user.firstName + " " + user.lastName}</h2>
+        <h2 className="card-title">
+          {user.firstName + " " + user.lastName}
+          {user.isPremium && <HiMiniCheckBadge className="text-blue-500" />}
+        </h2>
         <p>{user.bio}</p>
         <div className="card-actions justify-end py-10">
           <button
             className="btn btn-outline btn-warning"
-            onClick={() => sendRequest({status : "ignored", userId :user?._id})}
+            onClick={() =>
+              sendRequest({ status: "ignored", userId: user?._id })
+            }
           >
             Ignore
           </button>
           <button
             className="btn btn-outline btn-success"
-            onClick={() => sendRequest({status : "interested", userId : user?._id})}
+            onClick={() =>
+              sendRequest({ status: "interested", userId: user?._id })
+            }
           >
             Interested
           </button>

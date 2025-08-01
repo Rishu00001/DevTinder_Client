@@ -1,2 +1,3 @@
-export const server_url = "https://devtinder-9dz2.onrender.com";
+export const server_url = "http://localhost:3000";
 //https://devtinder-9dz2.onrender.com
+
