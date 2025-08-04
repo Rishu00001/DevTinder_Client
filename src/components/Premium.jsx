@@ -56,7 +56,29 @@ function Premium() {
   };
   if (loading) return <div>Please wait..</div>;
   if (premium) {
-    return <div>You are now a Premium user</div>;
+    return (
+      <div className="h-[90dvh] w-full flex justify-center items-center  px-4 py-6">
+        <div className="card w-full max-w-md bg-base-100 shadow-xl border-2 border-yellow-400 animate__animated animate__fadeIn">
+          <div className="card-body items-center text-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-16 w-16 text-yellow-500 mb-4"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path d="M12 2l2.09 6.26L21 9.27l-5.18 3.77L17.91 21 12 17.27 6.09 21 8.18 13.04 3 9.27l6.91-1.01L12 2z" />
+            </svg>
+            <h2 className="text-3xl font-bold text-yellow-500">
+              Premium Unlocked!
+            </h2>
+            <p className="mt-2 text-gray-600">
+              You are now a valued Premium member. Enjoy your exclusive
+              benefits!
+            </p>
+          </div>
+        </div>
+      </div>
+    );
   } else
     return (
       <div className="h-[90dvh] w-full flex justify-center items-center px-4 py-6">

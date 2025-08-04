@@ -31,7 +31,6 @@ function Body() {
     <div className="h-[100dvh] w-[100vw] flex flex-col  items-center">
       <Navbar />
       <Outlet />
-      <Footer />
     </div>
   );
 }

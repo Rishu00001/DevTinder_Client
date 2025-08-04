@@ -13,6 +13,7 @@ import Connections from "./components/Connections";
 import Requests from "./components/Requests";
 import Signup from "./components/Signup";
 import Premium from "./components/Premium";
+import ChatWindow from "./components/ChatWindow";
 
 function App() {
   return (
@@ -65,6 +66,14 @@ function App() {
                 element={
                   <div>
                     <Connections />
+                  </div>
+                }
+              />
+              <Route
+                path="/chat/:receiverId"
+                element={
+                  <div>
+                    <ChatWindow />
                   </div>
                 }
               />

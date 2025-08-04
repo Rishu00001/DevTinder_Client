@@ -1,18 +1,21 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setUserData } from "../redux/userSlice";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { server_url } from "../utils/constants";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 function Login() {
+  let user = useSelector((store) => store.user.userData);
   const navigate = useNavigate();
+  const [loggingIn, setLoggingIn] = useState(false);
   const [email, setEmail] = useState("ritik@gmail.com");
   const [password, setPassword] = useState("RitikRaj@123");
   const dispatch = useDispatch();
   const handleLogin = async () => {
     try {
+      setLoggingIn(true);
       const res = await axios.post(
         `${server_url}/api/auth/login`,
         {
@@ -37,8 +40,11 @@ function Login() {
       } else {
         toast.error("Something went wrong");
       }
+    } finally {
+      setLoggingIn(false);
     }
   };
+  if(user) return <Navigate to={"/"}/>
   return (
     <div className="flex justify-center h-[90dvh] items-center w-[100vw]">
       <div className="card bg-transparent w-96">
@@ -87,8 +93,8 @@ function Login() {
             </label>
           </div>
           <div className="card-actions justify-center">
-            <button className="btn btn-primary" onClick={handleLogin}>
-              Login
+            <button className="btn btn-primary w-full" onClick={handleLogin}>
+              {!loggingIn ? "Log in" : "Logging in..."}
             </button>
           </div>
           <p className="text-sm pt-2 text-center text-gray-400">

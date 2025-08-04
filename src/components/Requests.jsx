@@ -57,14 +57,14 @@ function Requests() {
   };
 
   return (
-    <div className="flex flex-col items-center my-10">
+    <div className="flex flex-col items-center my-10 w-[100vw]">
       <h1 className="font-bold text-2xl mb-6 text-gray-400">Requests</h1>
 
       <div className="w-full max-w-sm space-y-3">
         {receivedRequests.map((con, index) => (
           <div
             key={index}
-            className="flex flex-col gap-3 px-5 py-4 bg-gray-800 text-white shadow-md rounded-lg hover:bg-gray-700 transition"
+            className="flex justify-between gap-3 px-5 py-4 bg-gray-800 text-white shadow-md rounded-lg hover:bg-gray-700 transition"
           >
             <div className="flex items-center gap-4">
               <img
@@ -83,18 +83,19 @@ function Requests() {
             </div>
 
             <div className="flex gap-3 justify-end">
-              <button
-                onClick={() => handleAccept(con._id)}
-                className="px-3 py-1 text-sm bg-green-600 hover:bg-green-700 rounded-md"
-              >
-                Accept
-              </button>
-              <button
-                onClick={() => handleReject(con._id)}
-                className="px-3 py-1 text-sm bg-red-600 hover:bg-red-700 rounded-md"
-              >
-                Reject
-              </button>
+<button
+  onClick={() => handleAccept(con._id)}
+  className="px-3 py-0 text-xs bg-green-600 hover:bg-green-700 rounded"
+>
+  Accept
+</button>
+<button
+  onClick={() => handleReject(con._id)}
+  className="px-3 py-0 text-xs bg-red-600 hover:bg-red-700 rounded"
+>
+  Reject
+</button>
+
             </div>
           </div>
         ))}

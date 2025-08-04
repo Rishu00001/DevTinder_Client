@@ -16,8 +16,7 @@ function Feed() {
       });
       dispatch(addFeed(res?.data));
     } catch (error) {
-      if(error.status === "401")
-      console.log(error);
+      if (error.status === "401") console.log(error);
     }
   };
 
@@ -25,7 +24,12 @@ function Feed() {
     getFeed();
   }, []);
   if (!feed) return <div>loading</div>;
-  if (feed.length === 0) return <div>No new users found</div>;
+  if (feed.length === 0)
+    return (
+      <div className="text-center text-gray-400 italic py-8">
+        No users available at the moment.
+      </div>
+    );
   return (
     <div className="flex justify-center items-center h-[90dvh]  w-[95vw]">
       <UserCard user={feed[0]} />
