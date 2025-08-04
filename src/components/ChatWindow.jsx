@@ -68,7 +68,7 @@ function ChatWindow() {
   };
 
   return (
-    <div className="flex flex-col h-[90vh] bg-gray-900 text-white w-[100dvw] lg:w-[80dvw]">
+    <div className="flex flex-col h-[90dvh] bg-gray-900 text-white w-[100dvw] lg:w-[80dvw]">
       {/* Header */}
       <div className="flex items-center px-4 py-3 bg-gray-800 shadow-md">
         <img
