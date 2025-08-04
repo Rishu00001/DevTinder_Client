@@ -85,7 +85,7 @@ function ChatWindow() {
       </div>
 
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-3 scroll-hide">
+      <div className="flex-1 overflow-y-auto p-4 space-y-3 scroll-hide h-[80dvh]">
         {messages &&
           messages.map((msg, index) => {
             return msg.sender == userData._id ||
