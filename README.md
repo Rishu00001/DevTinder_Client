@@ -1,12 +1,25 @@
-# React + Vite
+# DevTinder - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend for **DevTinder**, a Tinder-like matchmaking platform for developers.  
+Built with **React (Vite)**, styled using **TailwindCSS + DaisyUI**, integrated with **real-time chat** via WebSockets, and **Razorpay payments** for premium membership.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
+- 🔐 **JWT Authentication** – Secure login & signup  
+- 👤 **Profile Editing** – Update details & upload photos via **Cloudinary**  
+- ❤️ **Swipe Actions** – Mark **Interested** ✅ or **Ignore** ❌  
+- 💬 **Real-Time Chat** – Connected developers can chat instantly using WebSockets  
+- 💳 **Premium Membership** – Integrated **Razorpay payment gateway** for upgrading to premium  
+- 🎨 **Modern UI** – TailwindCSS + DaisyUI for responsive design  
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+- **React (Vite)**
+- **TailwindCSS + DaisyUI**
+- **Socket.IO Client (WebSockets)**
+- **Cloudinary** (Image upload)
+- **JWT** for authentication
+- **Razorpay** for payments
+
